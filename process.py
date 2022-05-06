@@ -53,8 +53,10 @@ def next_batch(batch_count=60, width=CAPTCHA_WIDTH, height=CAPTCHA_HEIGHT):
     batch_x = np.zeros([batch_count, width * height])
     batch_y = np.zeros([batch_count, CAPTCHA_LEN * len(CAPTCHA_LIST)])
     text, image = wrap_gen_captcha_text_and_image()
+    print("11111",text, image)
     for i in range(batch_count):
         text_a = random.choice(text)
+        print("11111",text_a)
         image_a = image[text.index(text_a)]
         image_a = convert2gray(image_a)
         # 将图片数组一维化 同时将文本也对应在两个二维组的同一行
