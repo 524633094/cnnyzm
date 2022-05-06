@@ -31,7 +31,7 @@ def vec2text(vec, captcha_list=CAPTCHA_LIST, size=CAPTCHA_LEN):
 # 返回特定shape图片
 def wrap_gen_captcha_text_and_image(shape=(CAPTCHA_HEIGHT, CAPTCHA_WIDTH, 3)):
         t_list = []
-        t = file_name("./yzm") # 这里填写验证码数据集的路径
+        t = file_name("/content/drive/MyDrive/code/2000") # 这里填写验证码数据集的路径
         for i in t:
             index = i.rfind('.')
             name = i[:index]
