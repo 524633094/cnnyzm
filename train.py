@@ -5,6 +5,11 @@ from process import next_batch
 from getimg import CAPTCHA_HEIGHT, CAPTCHA_WIDTH, CAPTCHA_LEN, CAPTCHA_LIST
 from datetime import datetime
 
+config = tf.ConfigProto()
+config.gpu_options.allow_growth = True
+session = tf.InteractiveSession(config=config)
+
+
 
 # 随机生成权重
 def weight_variable(shape, w_alpha=0.01):
