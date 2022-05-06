@@ -43,8 +43,8 @@ def wrap_gen_captcha_text_and_image(shape=(CAPTCHA_HEIGHT, CAPTCHA_WIDTH, 3)):
         for i in range(0, len(im)):
             if im[i].shape == shape:
                 im_list.append(im[i])
-        # print(len(im_list))
-        # print(len(t_list))
+        print(len(im_list))
+        print(len(t_list))
         return t_list, im_list
 
 
