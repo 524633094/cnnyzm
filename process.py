@@ -18,7 +18,10 @@ def text2vec(text,captcha_len=CAPTCHA_LEN, captcha_list=CAPTCHA_LIST):
         print("3333333",text)
         raise ValueError("验证码超过4位啦！")
     vector = np.zeros(captcha_len * len(captcha_list))
-    for i in range(text_len): vector[captcha_list.index(text[i]) + i * len(captcha_list)] = 1
+    try:
+        for i in range(text_len): vector[captcha_list.index(text[i]) + i * len(captcha_list)] = 1
+    except ValueError:
+        print("44444444444",text)
     return vector
 
 
