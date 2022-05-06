@@ -13,7 +13,6 @@ def convert2gray(img):
 
 # 验证码文本转为向量
 def text2vec(text,captcha_len=CAPTCHA_LEN, captcha_list=CAPTCHA_LIST):
-    print("33333",text)
     text_len = len(text)
     if text_len > captcha_len:
         raise ValueError("验证码超过4位啦！")
