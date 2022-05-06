@@ -169,12 +169,12 @@ def train(height=CAPTCHA_HEIGHT, width=CAPTCHA_WIDTH, y_size=len(CAPTCHA_LIST) *
         # 每批次64个样本
 
         batch_x, batch_y = next_batch(64)
-        sess.run(optimizer, feed_dict={x: batch_x, y: batch_y, keep_prob: 0.75})
+        sess.run(optimizer, feed_dict={x: batch_x, y: batch_y, rate: 0.25})
         print("step：", step)
         # 每训练一百次测试一次
         if step % 100 == 0:
             batch_x_test, batch_y_test = next_batch(100)
-            acc = sess.run(accuracy, feed_dict={x: batch_x_test, y: batch_y_test, keep_prob: 1.0})
+            acc = sess.run(accuracy, feed_dict={x: batch_x_test, y: batch_y_test, rate: 0})
             print(datetime.now().strftime('%c'), ' step:', step, ' accuracy:', acc)
             # 偏差满足要求，保存模型
             if acc > acc_rate:
