@@ -13,6 +13,7 @@ def convert2gray(img):
 
 # 验证码文本转为向量
 def text2vec(text,captcha_len=CAPTCHA_LEN, captcha_list=CAPTCHA_LIST):
+    print("33333",text)
     text_len = len(text)
     if text_len > captcha_len:
         raise ValueError("验证码超过4位啦！")
@@ -43,8 +44,8 @@ def wrap_gen_captcha_text_and_image(shape=(CAPTCHA_HEIGHT, CAPTCHA_WIDTH, 3)):
         for i in range(0, len(im)):
             if im[i].shape == shape:
                 im_list.append(im[i])
-        print(len(im_list))
-        print(len(t_list))
+        # print(len(im_list))
+        # print(len(t_list))
         return t_list, im_list
 
 
@@ -53,10 +54,8 @@ def next_batch(batch_count=60, width=CAPTCHA_WIDTH, height=CAPTCHA_HEIGHT):
     batch_x = np.zeros([batch_count, width * height])
     batch_y = np.zeros([batch_count, CAPTCHA_LEN * len(CAPTCHA_LIST)])
     text, image = wrap_gen_captcha_text_and_image()
-    print("11111",text, image)
     for i in range(batch_count):
         text_a = random.choice(text)
-        print("11111",text_a)
         image_a = image[text.index(text_a)]
         image_a = convert2gray(image_a)
         # 将图片数组一维化 同时将文本也对应在两个二维组的同一行
