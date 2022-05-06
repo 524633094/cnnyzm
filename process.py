@@ -34,7 +34,7 @@ def wrap_gen_captcha_text_and_image(shape=(CAPTCHA_HEIGHT, CAPTCHA_WIDTH, 3)):
         t_list = []
         t = file_name("/content/drive/MyDrive/code/2000") # 这里填写验证码数据集的路径
         for i in t:
-            index = i.rfind('.')
+            index = i.rfind('_')
             name = i[:index]
             t_list.append(name)
         # print(t_list)
