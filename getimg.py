@@ -36,10 +36,10 @@ def load_image(filename,isFlatten=False):
         return img_arr
 
 def load_allimg():
-    flies = file_name("/content/drive/MyDrive/code/0-100") # 这里填写验证码数据集的路径
+    flies = file_name("/content/drive/MyDrive/code/2000") # 这里填写验证码数据集的路径
     list1 = []
     for item in flies:
         # print(item)
-        list1.append(load_image("/content/drive/MyDrive/code/0-100/"+str(item))) # 这里填写验证码数据集的路径
+        list1.append(load_image("/content/drive/MyDrive/code/2000/"+str(item))) # 这里填写验证码数据集的路径
     return list1
 
