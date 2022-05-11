@@ -18,7 +18,7 @@ def captcha2text(image_list, height=CAPTCHA_HEIGHT, width=CAPTCHA_WIDTH):
         file_path = tf.train.latest_checkpoint(save_dir)  # 获取最新的模型文件
         kpt = tf.train.get_checkpoint_state(save_dir)  # 检查获取可以用的模型文件
         print("modle----------",kpt,"\n last",file_path)
-        saver.restore(sess, kpt.model_checkpoint_path))
+        saver.restore(sess, kpt.model_checkpoint_path)
         predict = tf.argmax(tf.reshape(y_conv, [-1, CAPTCHA_LEN, len(CAPTCHA_LIST)]), 2)
         vector_list = sess.run(predict, feed_dict={x: image_list, keep_prob: 1})
         vector_list = vector_list.tolist()
