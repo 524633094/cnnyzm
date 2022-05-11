@@ -1,4 +1,4 @@
-model_checkpoint_path: "/content/drive/MyDrive/cnnyzm/0.95captcha.model-2400"
+model_checkpoint_path: "/content/drive/MyDrive/cnnyzm/0.99captcha.model-2900"
 all_model_checkpoint_paths: "/content/drive/MyDrive/cnnyzm/0.95captcha.model-2400"
 all_model_checkpoint_paths: "/content/drive/MyDrive/cnnyzm/0.96captcha.model-2500"
 all_model_checkpoint_paths: "/content/drive/MyDrive/cnnyzm/0.97captcha.model-2700"
