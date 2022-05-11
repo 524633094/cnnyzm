@@ -13,8 +13,12 @@ def captcha2text(image_list, height=CAPTCHA_HEIGHT, width=CAPTCHA_WIDTH):
     y_conv = cnn_graph(x, keep_prob, (height, width))
     saver = tf.train.Saver()
     with tf.Session() as sess:
-        print("modle----------",tf.train.latest_checkpoint('/content/drive/MyDrive/cnnyzm/'))
-        saver.restore(sess, '/content/drive/MyDrive/cnnyzm/0.99captcha.model-2900'))
+        
+        save_dir = r"/content/drive/MyDrive/cnnyzm/"
+        file_path = tf.train.latest_checkpoint(save_dir)  # 获取最新的模型文件
+        kpt = tf.train.get_checkpoint_state(save_dir)  # 检查获取可以用的模型文件
+        print("modle----------",kpt,"\n last",file_path))
+        saver.restore(sess, kpt.model_checkpoint_path))
         predict = tf.argmax(tf.reshape(y_conv, [-1, CAPTCHA_LEN, len(CAPTCHA_LIST)]), 2)
         vector_list = sess.run(predict, feed_dict={x: image_list, keep_prob: 1})
         vector_list = vector_list.tolist()
