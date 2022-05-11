@@ -1,7 +1,6 @@
-model_checkpoint_path: "/content/drive/MyDrive/cnnyzm/0.99captcha.model-4200"
+model_checkpoint_path: "/content/drive/MyDrive/cnnyzm/0.95captcha.model-2400"
 all_model_checkpoint_paths: "/content/drive/MyDrive/cnnyzm/0.95captcha.model-2400"
 all_model_checkpoint_paths: "/content/drive/MyDrive/cnnyzm/0.96captcha.model-2500"
 all_model_checkpoint_paths: "/content/drive/MyDrive/cnnyzm/0.97captcha.model-2700"
 all_model_checkpoint_paths: "/content/drive/MyDrive/cnnyzm/0.98captcha.model-2800"
 all_model_checkpoint_paths: "/content/drive/MyDrive/cnnyzm/0.99captcha.model-2900"
-all_model_checkpoint_paths: "/content/drive/MyDrive/cnnyzm/0.99captcha.model-4200"
