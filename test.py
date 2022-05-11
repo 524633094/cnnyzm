@@ -13,6 +13,7 @@ def captcha2text(image_list, height=CAPTCHA_HEIGHT, width=CAPTCHA_WIDTH):
     y_conv = cnn_graph(x, keep_prob, (height, width))
     saver = tf.train.Saver()
     with tf.Session() as sess:
+        print("modle----------",tf.train.latest_checkpoint('.'))
         saver.restore(sess, tf.train.latest_checkpoint('.'))
         predict = tf.argmax(tf.reshape(y_conv, [-1, CAPTCHA_LEN, len(CAPTCHA_LIST)]), 2)
         vector_list = sess.run(predict, feed_dict={x: image_list, keep_prob: 1})
@@ -24,13 +25,14 @@ def captcha2text(image_list, height=CAPTCHA_HEIGHT, width=CAPTCHA_WIDTH):
 
 if __name__ == '__main__':
     text, image = wrap_gen_captcha_text_and_image()
-    text_a = random.choice(text)
-    image_a = image[text.index(text_a)]
-    img_array = np.array(image_a)
-    image = convert2gray(img_array)
-    image = image.flatten() / 255
-    pre_text = captcha2text([image])
-    if pre_text[0] == text_a:
-        print(' 正确验证码:', text_a, "识别出来的：", pre_text,"  TURE")
-    else:
-        print(' 正确验证码:', text_a, "识别出来的：", pre_text, "FLASE")
+    for x in range(10):
+        text_a = random.choice(text)
+        image_a = image[text.index(text_a)]
+        img_array = np.array(image_a)
+        image = convert2gray(img_array)
+        image = image.flatten() / 255
+        pre_text = captcha2text([image])
+        if pre_text[0] == text_a:
+            print(' 正确验证码:', text_a, "识别出来的：", pre_text,"  TURE")
+        else:
+            print(' 正确验证码:', text_a, "识别出来的：", pre_text, "FLASE")
