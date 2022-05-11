@@ -28,11 +28,11 @@ def captcha2text(image_list, height=CAPTCHA_HEIGHT, width=CAPTCHA_WIDTH):
         return text_list
 
 if __name__ == '__main__':
-    text, image = wrap_gen_captcha_text_and_image()
+    # text, image = wrap_gen_captcha_text_and_image()
     preList = []
     preLableList = []
     for x in range(10):
-        # text, image = wrap_gen_captcha_text_and_image()
+        text, image = wrap_gen_captcha_text_and_image()
         text_a = random.choice(text)
         image_a = image[text.index(text_a)]
         img_array = np.array(image_a)
