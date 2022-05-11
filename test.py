@@ -13,7 +13,7 @@ def captcha2text(image_list, height=CAPTCHA_HEIGHT, width=CAPTCHA_WIDTH):
     y_conv = cnn_graph(x, keep_prob, (height, width))
     saver = tf.train.Saver()
     with tf.Session() as sess:
-        print("modle----------",tf.train.latest_checkpoint('.'))
+        print("modle----------",tf.train.latest_checkpoint('/content/drive/MyDrive/cnnyzm/'))
         saver.restore(sess, tf.train.latest_checkpoint('.'))
         predict = tf.argmax(tf.reshape(y_conv, [-1, CAPTCHA_LEN, len(CAPTCHA_LIST)]), 2)
         vector_list = sess.run(predict, feed_dict={x: image_list, keep_prob: 1})
