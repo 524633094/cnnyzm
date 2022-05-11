@@ -14,7 +14,7 @@ def captcha2text(image_list, height=CAPTCHA_HEIGHT, width=CAPTCHA_WIDTH):
     saver = tf.train.Saver()
     with tf.Session() as sess:
         print("modle----------",tf.train.latest_checkpoint('/content/drive/MyDrive/cnnyzm/'))
-        saver.restore(sess, tf.train.latest_checkpoint('/content/drive/MyDrive/cnnyzm/'))
+        saver.restore(sess, r"/content/drive/MyDrive/cnnyzm/0.99captcha.model-2900"))
         predict = tf.argmax(tf.reshape(y_conv, [-1, CAPTCHA_LEN, len(CAPTCHA_LIST)]), 2)
         vector_list = sess.run(predict, feed_dict={x: image_list, keep_prob: 1})
         vector_list = vector_list.tolist()
